@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using ll = long long;
+using namespace std;
+#define debug(x) cout << "eta --- > " <<  x << '\n'
+map < ll, ll > mp;
+vector < ll > a;
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        a.clear();
+        mp.clear();
+        ll n, k ; cin >> n >> k;
+        ll mx = -1e9 , ans = 0;
+        while(n--)
+        {
+            ll x; cin >> x;
+            a.push_back(x);
+            if(x % k != 0)
+            {
+                ll p = k - (x % k);
+                mp[p]++;
+                mx = max(mx, mp[p]);
+
+            }
+        }
+
+        for(auto i : mp)
+        {
+            if(i.second == mx)
+            {
+                ans = k * (mx - 1) + i.first + 1LL;
+            }
+        }
+        cout << ans << '\n';
+
+
+    }
+
+}
