@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using ll = long long;
+using namespace std;
+#define debug(x) cout << "eta --- > " <<  x << '\n'
+int main()
+{
+   ll t; cin >> t;
+   while(t--)
+   {
+       ll a, b,n,m; cin >> a >> b >> n >> m;
+       // n + m > a + b cz choclate er cehe guest beshi tae baad
+       // m > min(a , b ) cz m hoilo jeita kom thakbe seitae nibe.. 
+       //ekhn oi ( a, b ) kom er cehe m boro hoi then NO
+       if(n + m > a + b || m > min(a , b) )
+       {
+           cout << "No\n";
+       }
+       else
+       {
+           cout << "Yes\n";
+       }
+   }
+}
