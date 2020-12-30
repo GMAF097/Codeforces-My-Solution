@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+//typedef long long ll;
+using ll = long long;
+using namespace std;
+//relglitrjhbl
+vector < ll > A;
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        A.clear();
+        ll n , k; cin >> n  >> k;
+        for(ll i = 0; i < n; i++)
+        {
+            ll x; cin >> x;
+            A.push_back(x);
+        }
+        ll mx = *max_element(A.begin() , A.end());
+        if(k & 1)
+        {
+            for(ll i = 0; i < A.size(); i++)
+            {
+                A[i] = mx - A[i];
+            }
+            for(ll i = 0; i < A.size(); i++)
+            {
+                cout << A[i] << ' ';
+            }
+            cout << '\n';
+
+        }
+        if(  ! (k & 1))
+        {
+            for(ll i = 0; i < A.size(); i++)
+            {
+                A[i] = mx - A[i];
+            }
+            ll op = *max_element(A.begin() , A.end());
+            for(ll i = 0; i < A.size(); i++)
+            {
+                A[i] = op - A[i];
+            }
+            for(ll i = 0; i < A.size(); i++)
+            {
+                cout << A[i] << ' ';
+            }
+
+            cout << '\n';
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//hbtrnrt
+
+    }
+}
