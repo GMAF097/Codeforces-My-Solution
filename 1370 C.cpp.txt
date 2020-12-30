@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+void baal_1()
+{
+    cout << "Ashishgup\n";
+}
+void baal_2()
+{
+    cout << "FastestFinger\n";
+}
+void baal_3(ll n)
+{
+
+    for(ll i = 3; i * i <= n; i++)
+    {
+        if(n % i == 0)
+        {
+
+            ll Y = ( n / i);
+            if(i & 1 || Y & 1)
+            {
+                baal_1();
+                return;
+            }
+        }
+
+    }
+
+        baal_2();
+        return;
+
+}
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll n; cin >> n;
+        if(n == 1)
+        {
+            baal_2();
+
+        }
+        if(n == 2)
+        {
+            baal_1();
+
+        }
+        else if(n > 1 and n & 1)
+        {
+            baal_1();
+        }
+        else if(n > 2 and ! (n & 1)  )
+        {
+            baal_3(n);
+
+
+        }
+
+
+    }
+}
+
+ 
