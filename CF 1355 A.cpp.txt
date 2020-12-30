@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define endl "\n"
+int main()
+{
+    ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll a, b; cin >> a >> b;
+        if(a == b)
+        {
+            cout << (a + b) / 3 << endl;
+        }
+        else if(a > b)
+        {
+
+            if( (a / 2)  >= b)
+                cout << b << endl;
+            else
+                cout << (a + b) / 3 << endl;
+
+        }
+        else
+        {
+
+            if( (b / 2) >= a)
+                cout << a << endl;
+            else
+                cout << (a + b) / 3 << endl;
+
+
+
+        }
+
+    }
+}
