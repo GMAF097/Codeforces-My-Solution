@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+#define MX 200000
+queue < ll > q1, q2;
+//queue < ll > adj[MX];
+set < ll > adj[MX];
+int main()
+{
+    ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+    ll n; cin >> n;
+    for(ll i = 0; i < n; i++)
+    {
+        ll x; cin >> x;
+        q1.push(x);
+
+    }
+    q2 = q1;
+    for(ll i = 0; i < n && !q1.empty(); i++)   // front
+    {
+        ll x; cin >> x;
+        ll F = q1.front();
+        adj[x].insert(F);
+        q1.pop();
+
+    }
+    for(ll i = 0; i < n && !q2.empty(); i++) //  back
+    {
+        ll x; cin >> x;
+        ll F = q2.front();
+        adj[x].insert(F);
+        q2.pop();
+
+    }
+//    for(ll i = 0; i < n; i++)
+//    {
+//        while(!adj[i].empty())
+//        {
+//            cout << adj[i].front() << ' ';        // queue < ll > adj[MX];
+//            adj[i].pop();
+//        }
+//        for(auto it = adj[i].begin() ; it != adj[i].end(); it++)
+//        {
+//            cout << *it << ' ';
+//        }
+//        cout << '\n';
+//    }
+      //cout << " sz  " << adj[1].size() << '\n';
+      ll m; cin >> m;
+      while(m--)
+      {
+          ll x; cin >> x;
+          if(!adj[x].size())
+          {
+              cout << "-1 ";
+          }
+          ll ans = *adj[x].begin();
+          if(adj[x].size())
+          {
+              cout << ans << ' ';
+          }
+          for(ll i = 1; i <= 3; i++)
+          {
+              adj[i].erase(ans);
+          }
+
+      }
+      cout << '\n';
+
+
+
+}
