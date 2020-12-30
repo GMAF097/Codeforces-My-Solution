@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+//typedef long long ll;
+using ll = long long;
+using namespace std;
+vector < ll > A;
+set < ll > SS;
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        A.clear();
+        SS.clear();
+        ll n; cin >> n;
+        for(ll i = 0; i < n; i++)
+        {
+            ll x; cin >> x;
+            A.push_back(x);
+            SS.insert(x);
+        }
+        if(SS.size() == 1)
+        {
+            cout << n << '\n';
+        }
+        if(SS.size() > 1)
+        {
+            cout << 1 << endl;
+        }
+//hbtrnrt
+
+    }
+}
