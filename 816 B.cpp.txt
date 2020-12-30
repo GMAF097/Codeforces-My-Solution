@@ -1,0 +1,112 @@
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+#define MX 200000
+ll arr[MX];
+int main()
+{
+    ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+    ll n , k , q; cin >> n >> k >> q;
+    ll mx = -MX , mn = MX;
+    while(n--)
+    {
+        ll a , b; cin >> a >> b;
+        arr[a]++;
+        arr[b + 1]--;
+//        mx = max(mx , b);
+//        mn = min(mn , a);
+
+
+
+    }
+//    for(ll i = ; i <= mx; i++)     /* a[left]++ , a[right + 1]--  kore array build */
+//    {
+//        cout << i << ' ' << " -- > " << arr[i] << '\n';
+//    }
+//    /// prefix sum
+    for(ll i = 1; i <= MX; i++)
+    {
+        arr[i] = arr[i] + arr[i - 1];
+    }
+//    cout << "after prefix sum \n";
+//    for(ll i = mn ; i <= mx; i++)
+//    {
+//        cout << i << ' ' << " -- > " << arr[i] << '\n';
+//    }
+//    // output deikha bujha jae j arr[i] te >= k thakle okay otherwise not okay
+    for(ll i = 0 ; i <= MX; i++)
+    {
+        if(arr[i] >= k)
+        {
+            arr[i] = 1;
+        }
+        else
+        {
+            arr[i] = 0;
+        }
+    }
+    for(ll i = 1; i <= MX; i++)
+    {
+        arr[i] = arr[i] + arr[i - 1];
+    }
+//    /// abar array print
+//    cout << "  abar array print \n";
+//    for(ll i = 0 ; i <= 100; i++)
+//    {
+//        cout << arr[i] << ' ';
+//    }
+    while(q--)
+    {
+         ll x , y; cin >> x >> y;
+         cout << arr[y] - arr[x - 1] << '\n';
+//         cout << arr[x] << ' ' << arr[x + 1] << ' '  << arr[x - 1] << '\n';
+//         cout << arr[y] << ' ' << arr[y + 1] << ' '  << arr[y - 1] << '\n';
+
+    }
+
+
+
+
+
+
+}
+
+//// debugging
+/*
+3 2 4
+91 94
+92 97
+97 99
+91  -- > 1
+92  -- > 1
+93  -- > 0
+94  -- > 0
+95  -- > -1
+96  -- > 0
+97  -- > 1
+98  -- > -1
+99  -- > 0
+after prefix sum
+91  -- > 1
+92  -- > 2
+93  -- > 2
+94  -- > 2
+95  -- > 1
+96  -- > 1
+97  -- > 2
+98  -- > 1
+99  -- > 1
+  abar array print
+91  -- > -1
+92  -- > 1
+93  -- > 1
+94  -- > 1
+95  -- > -1
+96  -- > -1
+97  -- > 1
+98  -- > -1
+99  -- > -1
+
+Process returned 0 (0x0)   execution time : 1.611 s
+Press any key to continue.
+*/
